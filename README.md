@@ -4,6 +4,6 @@ This repository contains HashiCorp [Terraform](https://www.terraform.io/) script
 
 | Cloud Platform | k8s Service | Terraform Folder |
 | --- | --- | --- |
-| AWS | EKS (Elastic Kubernetes Service)  | `/aws` |
-| Azure |  | `azure` |
+| AWS | EKS (Elastic Kubernetes Service)  | `aws` |
+| Azure | AKS (Azure Kubernetes Service | `azure` |
 | Google Cloud | GKE (Google Kubernetes Engine) | `gcp` |

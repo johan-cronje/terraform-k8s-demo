@@ -8,7 +8,7 @@ variable "region" {
 }
 
 variable "credentials_file" {
-    description = "Project Service Account credentials file"
+  description = "Project Service Account credentials file"
 }
 
 variable "gke_username" {
