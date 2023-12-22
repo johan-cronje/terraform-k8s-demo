@@ -7,18 +7,16 @@ data "aws_availability_zones" "available" {
   }
 }
 
-resource "random_string" "suffix" {
-  length  = 8
-  special = false
-}
+# generate random pet name to be used as a unique identifier
+resource "random_pet" "prefix" {}
 
 locals {
-  cluster_name = "education-eks-${random_string.suffix.result}"
+  cluster_name = "${random_pet.prefix.id}-eks"
 }
 
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "5.0.0"
+  version = "5.4.0"
 
   name = "education-vpc"
 
