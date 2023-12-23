@@ -5,7 +5,7 @@ data "google_container_engine_versions" "gke_version" {
 }
 
 resource "google_container_cluster" "primary" {
-  name     = "${var.project_id}-gke"
+  name     = "${random_pet.prefix.id}-gke"
   location = var.region
 
   # Node pool is required for cluster creation, so create a temporary smallest 
@@ -33,7 +33,7 @@ resource "google_container_node_pool" "primary_nodes" {
     ]
 
     labels = {
-      env = var.project_id
+      env = random_pet.prefix.id
     }
 
     # node disk options
@@ -42,7 +42,7 @@ resource "google_container_node_pool" "primary_nodes" {
 
     # preemptible  = true
     machine_type = "n1-standard-1"
-    tags         = ["gke-node", "${var.project_id}-gke"]
+    tags         = ["gke-node", "${random_pet.prefix.id}-gke"]
     metadata = {
       disable-legacy-endpoints = "true"
     }
